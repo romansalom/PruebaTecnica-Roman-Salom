@@ -9,20 +9,10 @@ export default function Page() {
   return (
     ///hago un map para recorrer el arreglo de tareas
 <div>
-  {tasks && tasks.length > 0 ? (
-    <div>
-      {tasks.map((task) => (
-        <TaskCard task={task} key={task.id} />
-      ))}
-    </div>
-  ) : (
-    <div className="flex items-center justify-center h-40">
-      <p>No hay tareas.</p>
-    </div>
-  )}
+  {tasks.map((task) =>(
+  <TaskCard task={task} key = {task.id} />
+  ))}
 </div>
-
-
   )
 }
  
