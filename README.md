@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Anotador de Tareas
+¡Bienvenido/a a mi proyecto de Anotador de Tareas! Este proyecto utiliza tecnologías modernas como Next.js, React, Tailwind CSS y más para ofrecer una experiencia de usuario eficiente y agradable.
 
-## Getting Started
+Este proyecto está implementado en Vercel. Puedes acceder a la aplicación meidante la siguiente url : https://prueba-tecnica-roman-salom.vercel.app/
 
-First, run the development server:
+Tecnologías Utilizadas
+Next.js: Este proyecto está construido con Next.js, un marco de React que facilita la creación de aplicaciones web rápidas y eficientes.
 
-```bash
+React: La interfaz de usuario está construida con React, una biblioteca de JavaScript para construir interfaces de usuario interactivas.
+
+Tailwind CSS: El diseño y estilo de la aplicación se han logrado mediante Tailwind CSS, una herramienta de desarrollo de CSS de utilidad de baja abstracción.
+
+UUID: Para garantizar identificadores únicos para cada tarea, se utiliza la biblioteca UUID.
+
+React Hook Form: La gestión de formularios se simplifica utilizando React Hook Form, una biblioteca para manejar formularios en React.
+
+React Context: Se ha implementado un contexto de React para permitir un fácil acceso a ciertos datos en toda la aplicación.
+
+useEffect y useState: Para manejar estados y efectos secundarios, se utilizan los hooks useEffect y useState proporcionados por React.
+
+Instrucciones de Ejecución
+Clonar el Repositorio:
+
+bash
+Copy code
+git clone https://github.com/romansalom/PruebaTecnica-Roman-Salom.git
+cd prueba-tecnica-next-roman-salom
+Instalar Dependencias:
+
+npm install
+Ejecutar la Aplicación:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+La aplicación estará disponible en http://localhost:3000.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Funcionalidades Principales
+Anotación de Tareas: Agrega nuevas tareas a tu lista con facilidad.
+Actualización de Estado: Elimina o modifica las tareas
+Gestión de Estados Globales: Utiliza React Context para compartir información relevante entre componentes.
+Estructura del Proyecto
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+/
+|-- pages/ # Páginas de Next.js
+|-- components/ # Componentes React reutilizables
+|-- context/ # Contexto de React para gestión global de estados
+|-- styles/ # Estilos y configuraciones de Tailwind CSS
+|-- public/ # Archivos estáticos (imágenes, etc.)
+|-- ...
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+¡Espero que disfrutes explorando y utilizando esta aplicación de Anotador de Tareas! Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto. ¡Feliz organización!
