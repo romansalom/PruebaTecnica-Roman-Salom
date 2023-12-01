@@ -6,12 +6,16 @@ export default function Page() {
   const {tasks} = useTasks();
  
   return (
-    ///hago un map para recorrer el arreglo de tareas
-<div>
-  {tasks.map((task) =>(
-  <TaskCard task={task} key = {task.id} />
-  ))}
-</div>
-  )
+    <div>
+      {tasks.length > 0 ? (
+        // Si hay tareas, las mapeo
+        tasks.map((task) => <TaskCard task={task} key={task.id} />)
+      ) : (
+        // Si no hay tareas, muestro un mensaje
+        <p style={{ textAlign: 'center' }}>No tenés tareas.</p>
+      )}
+    </div>
+  );
 }
+
  

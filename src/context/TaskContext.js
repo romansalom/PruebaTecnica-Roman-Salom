@@ -1,5 +1,4 @@
 "use client"
-
 import { createContext, useContext, useState, useEffect } from "react";  
 /// importo libreria uuiid que me da un id unico y lo nombro como uuid
 import {v4 as uuid} from 'uuid'
@@ -25,22 +24,28 @@ const [tasks,setTasks] = useState(()=>[])
 
 
 ////el servidor no esta localsrtorage y me tira error , porque pasa por el servidor y no se procesa
-useEffect(()=>{
-    const item = localStorage.getItem("tasks")
-    const tasks = JSON.parse(item)
-  console.log(tasks)
-  if(tasks){
-     
-  setTasks(tasks)
-  }
-
-},[])
-
-
-
-useEffect(()=>{
-    localStorage.setItem('tasks' , JSON.stringify(tasks))
-    }, [tasks])
+useEffect(() => {
+    const item = localStorage.getItem("tasks");
+  
+    // Check if item is not null
+    if (item) {
+      try {
+        const tasks = JSON.parse(item);
+        console.log(tasks);
+  
+        if (tasks && tasks.length > 0) {
+          setTasks(tasks);
+        }
+      } catch (error) {
+        console.error("Error parsing JSON:", error);
+      }
+    }
+  }, []);
+  
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+  
 
     //// creo una funcion que me permita agregar nuevas tareas al arreglo.
     const createTask = (title , description) =>{
