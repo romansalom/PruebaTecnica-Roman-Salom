@@ -29,7 +29,7 @@ useEffect(()=>{
     const item = localStorage.getItem("tasks")
     const tasks = JSON.parse(item)
   console.log(tasks)
-  if(tasks.length > 0){
+  if(tasks){
      
   setTasks(tasks)
   }
