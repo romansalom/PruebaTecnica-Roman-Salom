@@ -18,7 +18,8 @@ export default function Page() {
         tasks.map((task) => <TaskCard task={task} key={task.id} />)
       ) : (
         <div className='flex items-center justify-center min-h-screen'>
-        <p style={{ textAlign: 'center' }}>No tenés tareas.</p>
+        <p style={{ textAlign: 'center', fontSize: '1.5rem', color: '#555', marginTop: '20px' }}>¡Genial! No tenés tareas pendientes en este momento.</p>
+
         </div>
       )}
     </div>
