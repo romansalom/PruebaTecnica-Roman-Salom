@@ -1,38 +1,27 @@
 "use client"
-import { createContext, useContext, useState, useEffect } from "react";  
-/// importo libreria uuiid que me da un id unico y lo nombro como uuid
-import {v4 as uuid} from 'uuid'
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { v4 as uuid } from "uuid";
 
-///creo contexto para utilizarlo en toda LA APPA
 export const TaskContext = createContext();
 
-///creo un hook que se ejecute cada vez que se necesiten los datos del provider
+export const useTasks = () => {
+  const context = useContext(TaskContext);
+  if (!context) throw new Error("useTasks debe ser usado dentro de un provider ");
+  return context;
+};
 
-export const useTasks = () =>{
-   const  context =  useContext(TaskContext)
-   if(!context)
-    throw new Error("useTask debe ser usadio dentro de un provider ")
-   return context
-}
+export const TaskProvider = ({ children }) => {
+  const [tasks, setTasks] = useState(() => []);
+  const [loading, setLoading] = useState(true); // New loading state
 
-////cuando las tareas cambien voy a guardar las tareas en el local host
-
-
-export const TaskProvider = ({children}) =>{
-    ////creo un estado para manejar las tareas
-const [tasks,setTasks] = useState(()=>[])
-
-
-////el servidor no esta localsrtorage y me tira error , porque pasa por el servidor y no se procesa
-useEffect(() => {
+  useEffect(() => {
     const item = localStorage.getItem("tasks");
-  
-    // Check if item is not null
+
     if (item) {
       try {
         const tasks = JSON.parse(item);
         console.log(tasks);
-  
+
         if (tasks && tasks.length > 0) {
           setTasks(tasks);
         }
@@ -40,40 +29,37 @@ useEffect(() => {
         console.error("Error parsing JSON:", error);
       }
     }
+
+    // Set loading to false after tasks are loaded
+    setLoading(false);
   }, []);
-  
+
   useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
-  
 
-    //// creo una funcion que me permita agregar nuevas tareas al arreglo.
-    const createTask = (title , description) =>{
-        ///creo una copia del arreglo
-        setTasks([...tasks , {
-            title , description, id:uuid()
-        }])
-    }
+  const createTask = (title, description) => {
+    setTasks([...tasks, { title, description, id: uuid() }]);
+  };
 
-    const deleteTask = (id) =>
-        ///con el metodo filter , cero un nuevo arreglo pero sin el elemneto eliminado 
-        setTasks( [...tasks.filter(task =>task.id !== id)]);
-       
+  const deleteTask = (id) =>
+    setTasks([...tasks.filter((task) => task.id !== id)]);
 
+  const updateTask = (id, newData) => {
+    setTasks([...tasks.map((task) => (task.id === id ? { ...task, ...newData } : task))]);
+  };
 
-    /// lo que hace esta funcion es actualizar los valores realizando copias del nuevbo objeto convinado con el anterior 
-    const updateTask =(id, newData)=>{
-        setTasks( [...tasks.map(task =>task.id === id ? {...task, ...newData } : task)]);
-    }
-
-
-    return <TaskContext.Provider value={{
-       tasks,
-       createTask,
-       deleteTask,
-       updateTask
-    }}>
-        {children}
-
+  return (
+    <TaskContext.Provider
+      value={{
+        tasks,
+        loading, // Add loading to the context value
+        createTask,
+        deleteTask,
+        updateTask,
+      }}
+    >
+      {children}
     </TaskContext.Provider>
-}
+  );
+};

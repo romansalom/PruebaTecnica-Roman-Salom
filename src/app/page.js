@@ -1,21 +1,26 @@
 "use client"
-import { useTasks } from "@/context/TaskContext"
+import { useTasks } from "@/context/TaskContext";
 import { TaskCard } from "@/components/TaskCard";
+
+
 export default function Page() {
-///me traigo el arreglo de tareas
-  const {tasks} = useTasks();
- 
+  const { tasks, loading } = useTasks();
+
   return (
     <div>
-      {tasks.length > 0 ? (
-        // Si hay tareas, las mapeo
+      {loading ? (
+    <div className='flex items-center justify-center min-h-screen'>
+    <div style={{ borderTopColor: 'transparent' }} className="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"></div>
+    <p className="ml-2">Cargando...</p>
+  </div>
+  
+      ) : tasks.length > 0 ? (
         tasks.map((task) => <TaskCard task={task} key={task.id} />)
       ) : (
-        // Si no hay tareas, muestro un mensaje
+        <div className='flex items-center justify-center min-h-screen'>
         <p style={{ textAlign: 'center' }}>No tenés tareas.</p>
+        </div>
       )}
     </div>
   );
 }
-
- 
