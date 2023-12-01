@@ -9,7 +9,7 @@ export default function Page() {
   return (
     ///hago un map para recorrer el arreglo de tareas
 <div>
-  {tasks.length > 0 ? (
+  {tasks && tasks.length > 0 ? (
     <div>
       {tasks.map((task) => (
         <TaskCard task={task} key={task.id} />
@@ -21,6 +21,7 @@ export default function Page() {
     </div>
   )}
 </div>
+
 
   )
 }
