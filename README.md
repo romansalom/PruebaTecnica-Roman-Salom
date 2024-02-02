@@ -1,24 +1,18 @@
-Anotador de Tareas 
-¡Bienvenido/a a mi proyecto de Anotador de Tareas! Este proyecto utiliza tecnologías modernas como Next.js, React, Tailwind CSS y más para ofrecer una experiencia de usuario eficiente y agradable.
+Anotador de Tareas - ¡Bienvenido/a a mi proyecto de Anotador de Tareas! Este innovador proyecto utiliza tecnologías modernas como Next.js, React y Tailwind CSS para proporcionar una experiencia de usuario eficiente y agradable.
 
-Este proyecto está implementado en Vercel. Puedes acceder a la aplicación mediante la siguiente url: https://prueba-tecnica-roman-salom.vercel.app/
+Implementado en Vercel, puedes acceder a la aplicación mediante la siguiente URL: Anotador de Tareas.
 
-Tecnologías Utilizadas Next.js: Este proyecto está construido con Next.js, un marco de React que facilita la creación de aplicaciones web rápidas y eficientes.
+Tecnologías Utilizadas:
 
-React: La interfaz de usuario está construida con React, una biblioteca de JavaScript para construir interfaces de usuario interactivas.
-
+Next.js: Construido con Next.js, un marco de React que facilita la creación de aplicaciones web rápidas y eficientes.
+React: La interfaz de usuario está construida con React, una biblioteca de JavaScript para construir interfaces interactivas.
 Tailwind CSS: El diseño y estilo de la aplicación se han logrado mediante Tailwind CSS, una herramienta de desarrollo de CSS de utilidad de baja abstracción.
-
-UUID: Para garantizar identificadores únicos para cada tarea, se utiliza la biblioteca UUID.
-
-React Hook Form: La gestión de formularios se simplifica utilizando React Hook Form, una biblioteca para manejar formularios en React.
-
-React Context: Se ha implementado un contexto de React para permitir un fácil acceso a ciertos datos en toda la aplicación.
-
-Tostify: Además, para mejorar la experiencia del usuario, se ha integrado Tostify para la gestión de alertas, brindando notificaciones visuales claras y concisas.
-
-useEffect y useState: Para manejar estados y efectos secundarios, se utilizan los hooks useEffect y useState proporcionados por React.
-
+UUID: Garantiza identificadores únicos para cada tarea mediante la biblioteca UUID.
+React Hook Form: Simplifica la gestión de formularios utilizando React Hook Form, una biblioteca para manejar formularios en React.
+React Context: Implementa un contexto de React para permitir un fácil acceso a ciertos datos en toda la aplicación.
+Tostify: Mejora la experiencia del usuario con Tostify para la gestión de alertas, brindando notificaciones visuales claras y concisas.
+useEffect y useState: Utiliza los hooks useEffect y useState proporcionados por React para manejar estados y efectos secundarios.
+JSON Web Token (JWT): Almacena de manera local las tareas utilizando JWT para asegurar la persistencia de la información en el navegador del usuario.
 Instrucciones de Ejecución Clonar el Repositorio:
 
 git clone https://github.com/romansalom/PruebaTecnica-Roman-Salom.git
